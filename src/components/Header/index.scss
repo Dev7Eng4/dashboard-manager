@@ -1,0 +1,63 @@
+header {
+  position: sticky;
+  top: 0;
+  align-items: center;
+  padding: 0 2rem;
+
+  .svg-inline--fa {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .notification {
+    position: relative;
+    margin-right: 1.3rem;
+
+    &-count {
+      @include psAbsolute(-40%, -60%);
+      display: block;
+      width: 1.7rem;
+      height: 1.7rem;
+
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.7rem;
+      font-size: 1rem;
+      background-color: $color-danger;
+      color: $color-white;
+    }
+  }
+
+  .dark-mode {
+    display: block;
+    margin-left: auto;
+    margin-right: 1.3rem;
+  }
+
+  .account {
+    @include flexNoCenter;
+
+    &-avatar {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      margin: 1rem 0.5rem;
+
+      text-align: center;
+      line-height: 2.8rem;
+      border-radius: 50%;
+      background-color: rgb(62, 202, 62);
+    }
+
+    &-name {
+      padding-right: 1rem;
+      color: rgb(255, 1, 255);
+    }
+  }
+
+  @include respond(desktop) {
+    .fa-bars {
+      display: none;
+    }
+  }
+}

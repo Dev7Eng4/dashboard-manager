@@ -1,0 +1,219 @@
+nav {
+  position: absolute;
+  right: 100%;
+  height: 100vh;
+  z-index: 999;
+  transition: 0.2s all;
+
+  &.custom-theme {
+    width: 250px;
+  }
+
+  &.open {
+    right: calc(100% - 250px);
+  }
+
+  .nav-brand {
+    position: sticky;
+    top: 0;
+    @include flexBetweenCenter;
+    padding: 1rem 2rem;
+    font-weight: $bold;
+    white-space: nowrap;
+
+    .logo-min {
+      display: none;
+    }
+
+    a {
+      padding-left: 1rem;
+      font-size: 3rem;
+      color: $color-primary;
+    }
+
+    svg[data-prefix='far'] {
+      display: none;
+    }
+
+    .btn-expand-navbar {
+      font-size: 1.8rem;
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+
+  @mixin custom {
+    @include flexNoCenter;
+    color: var(--text-color-primary);
+    padding: 1.2rem 1.4rem;
+    white-space: nowrap;
+  }
+
+  & > .list-group {
+    height: calc(100% - 65px);
+    padding: 1rem 0 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: inherit;
+  }
+
+  .list-group-item {
+    padding: 2px 1.5rem;
+    background-color: inherit;
+    border: none;
+
+    .list-item__icon {
+      display: flex;
+      width: 2rem;
+      margin-right: 1.6rem;
+      z-index: 1300;
+
+      svg {
+        font-size: 1.6rem;
+        width: 1.5em !important;
+      }
+    }
+
+    a,
+    .link-expand {
+      @include custom;
+      border-radius: 5px;
+
+      &.active {
+        background-color: $color-primary;
+        color: $color-black-light;
+
+        &:hover {
+          background-color: $color-primary;
+        }
+      }
+
+      &:hover {
+        background-color: $color-grey;
+      }
+    }
+
+    .link-expand {
+      cursor: pointer;
+
+      .fa-chevron-right {
+        margin-left: auto;
+        transition: 0.4s transform;
+      }
+      &.expand {
+        .fa-chevron-right {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .list-group-item + .list-group {
+    height: 0;
+    overflow: hidden;
+    transition: 0.4s all;
+
+    &.h-1-item {
+      height: 44px;
+    }
+
+    &.h-2-item {
+      height: 87px;
+    }
+
+    &.h-3-item {
+      height: 131px;
+    }
+
+    &.h-4-item {
+      height: 174px;
+    }
+
+    .list-group-item {
+      a {
+        padding: 1rem 1.4rem 1rem 2.5rem;
+        margin-left: 3rem;
+
+        &::before {
+          position: absolute;
+          content: '•';
+          left: 5.5rem;
+          font-size: 2rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+
+  @include respond(desktop) {
+    position: relative;
+    right: auto !important;
+
+    .nav-brand {
+      svg[data-prefix='far'] {
+        display: inline-block;
+      }
+
+      svg[data-prefix='fas'] {
+        display: none;
+      }
+    }
+
+    &.expand {
+      width: 250px;
+    }
+
+    &.hide {
+      width: 80px;
+
+      .nav-brand {
+        .logo-min {
+          display: block;
+        }
+
+        .logo-full {
+          display: none;
+        }
+
+        svg[data-prefix='far'] {
+          display: none;
+        }
+      }
+
+      .list-item__text {
+        // transition: 0.1s visibility;
+        visibility: hidden;
+      }
+
+      .list-group-item + .list-group.expand {
+        height: 0;
+      }
+
+      &:hover {
+        width: 250px;
+
+        .nav-brand {
+          .logo-min {
+            display: none;
+          }
+
+          .logo-full {
+            display: block;
+          }
+
+          svg[data-prefix='far'] {
+            display: block;
+          }
+        }
+
+        .list-item__text {
+          visibility: visible;
+        }
+
+        .list-group-item + .list-group.expand {
+          height: auto;
+        }
+      }
+    }
+  }
+}

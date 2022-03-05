@@ -1,0 +1,19 @@
+@import 'sass/mixins/position.scss';
+
+.search-with-icon {
+  position: relative;
+  min-width: 250px;
+
+  .form-control {
+    padding-left: 3.1rem;
+    // text-indent: 2.1rem;
+    border-radius: 4px;
+  }
+
+  svg {
+    @include psAbsolute(50%, initial, initial, 1rem);
+    @include transformMove(0, -50%);
+    color: grey;
+    z-index: 99;
+  }
+}

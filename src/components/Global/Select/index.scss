@@ -1,0 +1,23 @@
+@import 'sass/mixins/flex.scss';
+@import 'sass/_variables.scss';
+
+.custom-select {
+  min-width: 250px;
+
+  .react-select__control {
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  .react-select__menu {
+    margin-top: 1px;
+    overflow: hidden;
+
+    .react-select__menu-list {
+      padding: 0;
+    }
+    .react-select__option {
+      cursor: pointer;
+    }
+  }
+}

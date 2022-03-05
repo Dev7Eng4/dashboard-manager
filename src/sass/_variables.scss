@@ -1,0 +1,26 @@
+$color-white: #ffffff;
+$color-white-light: #d3d5d9;
+$color-black: #161d31;
+$color-black-light: #283046;
+$color-light: #f8f9fa;
+$color-primary: #fcd535;
+$color-grey: #b5bcc7;
+$color-danger: #dc3535;
+$color-auth: #3bb084;
+
+$font-size-small: 1rem;
+$font-size-primary: 1.3rem;
+$font-size-title: 3rem;
+$font-size-sub: 1.7rem;
+
+$light: 400;
+$regular: 600;
+$bold: 700;
+$extra-bold: 800;
+
+:root {
+  --text-color-primary: #{$color-black};
+  --text-color-second: #{$color-black-light};
+  --background-color-primary: #{$color-white-light};
+  --background-color-second: #{$color-white};
+}

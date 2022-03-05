@@ -1,0 +1,48 @@
+@mixin psAbsolute(
+  $top: initial,
+  $right: initial,
+  $bottom: initial,
+  $left: initial,
+  $order: initial
+) {
+  position: absolute;
+  content: '';
+  // @if variable-exists(top) {
+  //   top: $top;
+  // }
+  @if $top!=initial {
+    top: $top;
+  }
+  @if $right!=initial {
+    right: $right;
+  }
+  @if $bottom!=initial {
+    bottom: $bottom;
+  }
+  @if $left!=initial {
+    left: $left;
+  }
+  @if $order!=initial {
+    z-index: $order;
+  }
+}
+
+@mixin transformMove($x: 0, $y: 0) {
+  @if $x == 0 {
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y);
+    transform: translateY($y);
+  } @else if $y == 0 {
+    -webkit-transform: translateX($x);
+    -ms-transform: translateX($x);
+    transform: translateX($x);
+  } @else {
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+  }
+}
+
+@mixin absCenter {
+  @include psAbsolute(50%, 50%);
+}

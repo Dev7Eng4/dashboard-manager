@@ -1,0 +1,179 @@
+.container-auth {
+  // max-width: 300px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 3rem 1rem;
+  background-color: #3bb084;
+
+  @include flexCenter;
+
+  form {
+    width: 90%;
+    padding: 4rem 1.5rem;
+    border-radius: 5px;
+    background-color: #fff;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: $bold;
+      letter-spacing: 3px;
+    }
+
+    @include respond(tab-port) {
+      width: 450px;
+      padding: 4rem 4rem;
+    }
+  }
+
+  .form-auth__title-description {
+    font-size: 1.2rem;
+    color: $color-grey;
+  }
+
+  .input-group:first-of-type {
+    margin-top: 5rem;
+  }
+
+  .input-group {
+    &-text {
+      font-size: 1.5rem;
+      background-color: #3bb084;
+
+      svg {
+        width: 2.5rem;
+        color: $color-white;
+      }
+    }
+
+    .form-control {
+      height: 39px;
+      padding: 1rem;
+
+      &:focus {
+        border-color: #ced4da;
+        box-shadow: none;
+      }
+      &[type='password'] {
+        // font-size: 2rem;
+      }
+    }
+  }
+
+  .input-group__password {
+    position: relative;
+
+    .form-control {
+      padding-right: 3rem;
+      border-top-right-radius: 0.25rem !important;
+      border-bottom-right-radius: 0.25rem !important;
+    }
+
+    & > svg {
+      @include psAbsolute(50%, 0);
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 999;
+    }
+  }
+
+  .btn {
+    padding: 1rem 0;
+    background-color: $color-auth;
+    border: none;
+    border-radius: 999px;
+  }
+
+  .diff-login {
+    span {
+      @include flexCenter;
+      display: inline-flex;
+      width: 4.5rem;
+      height: 4.5rem;
+      margin: 1rem 0.5rem;
+
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:first-child {
+        background-color: $color-primary;
+      }
+
+      &:last-child {
+        background-color: $color-danger;
+      }
+
+      svg {
+        color: $color-white;
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  .form-check {
+    input,
+    label {
+      cursor: pointer;
+    }
+  }
+
+  .auth-form__verify-code {
+    .input-code {
+      position: relative;
+
+      .time {
+        @include psAbsolute(50%, 1rem);
+        @include transformMove(0, -50%);
+        color: $color-grey;
+        z-index: 999;
+
+        &.btn-reset {
+          color: $color-primary;
+          cursor: pointer;
+        }
+      }
+    }
+    .form-control {
+      padding: 0.8rem 1rem;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+
+      &::placeholder {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+.modal {
+  &.modal__select-code {
+    .modal-dialog {
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .modal-title {
+      margin-bottom: 1rem;
+      font-weight: $regular;
+    }
+
+    .modal-footer {
+      padding: 0.75rem 1rem;
+    }
+
+    .btn-primary {
+      margin-right: 1rem;
+    }
+
+    @include respond(tab-port) {
+      .modal-dialog {
+        max-width: 400px;
+      }
+    }
+  }
+}

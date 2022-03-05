@@ -1,0 +1,86 @@
+@import 'sass/mixins/responsive.scss';
+
+.users-container {
+  .users-filter {
+    .custom-select {
+      margin: 1rem 0;
+    }
+
+    .btn-submit {
+      flex-shrink: 0;
+    }
+
+    @include respond(tab-port) {
+      display: flex;
+      align-items: center;
+
+      .custom-select {
+        margin: 0 1rem;
+        min-width: 200px;
+      }
+    }
+
+    @include respond(tab-middle) {
+      .custom-select {
+        min-width: 250px;
+      }
+    }
+  }
+
+  .table-container {
+    margin-top: 3rem;
+
+    .user {
+      display: flex;
+      align-items: center;
+
+      &-avatar {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+
+        background: rgb(206, 193, 193);
+        font-weight: 700;
+        color: rgb(209, 157, 157);
+        border-radius: 50%;
+      }
+    }
+
+    .badge {
+      width: 7rem;
+      font-size: 1.1rem;
+      text-transform: capitalize;
+    }
+
+    .action {
+      position: relative;
+      cursor: pointer;
+
+      .modal-action {
+        display: none;
+        position: absolute;
+        right: 0;
+
+        overflow: hidden;
+        border-radius: 4px;
+        background: rgb(241, 229, 229);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+        z-index: 99;
+
+        &.open {
+          display: block;
+        }
+      }
+
+      .action-block,
+      .action-delete {
+        display: block;
+        padding: 1rem 2.5rem;
+
+        &:hover {
+          background-color: aqua;
+        }
+      }
+    }
+  }
+}

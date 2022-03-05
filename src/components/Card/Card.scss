@@ -1,0 +1,25 @@
+@import 'sass/variables';
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.1);
+
+  &-body {
+    padding: 2rem;
+
+    svg {
+      font-size: $font-size-title;
+    }
+  }
+
+  &-title {
+    font-size: $font-size-title;
+    color: $color-primary;
+  }
+
+  &-subtitle {
+    font-size: $font-size-primary;
+    color: $color-grey;
+  }
+}

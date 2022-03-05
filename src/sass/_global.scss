@@ -1,0 +1,88 @@
+.app-dark {
+  --text-color-primary: #{$color-white};
+  --text-color-second: #{$color-white-light};
+  --background-color-primary: #{$color-black};
+  --background-color-second: #{$color-black-light};
+}
+
+.custom-theme {
+  background-color: var(--background-color-second);
+  color: var(--text-color-primary);
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.container-content--right {
+  max-height: 100vh;
+  overflow: auto;
+}
+
+main {
+  min-height: calc(100vh - 50px);
+  padding: 2rem;
+  background-color: var(--background-color-primary);
+
+  .container-fluid {
+    padding: 2rem;
+    background-color: var(--background-color-second);
+    border-radius: 5px;
+  }
+}
+
+.error-msg {
+  margin: 2px 0;
+  color: $color-danger;
+  font-size: 1.1rem;
+  min-height: 1.7rem;
+}
+
+.modal {
+  padding: 0 2rem;
+}
+
+.symbol-require {
+  color: $color-danger;
+}
+
+.form-control {
+  padding: 0.8rem;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: none;
+  }
+}
+
+.btn-submit {
+  padding: 0.8rem 2rem;
+  border: none;
+  background-color: $color-primary;
+  color: $color-black;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.9);
+    color: $color-black;
+  }
+}
+
+.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--background-color-second);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(119, 118, 118);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    // background: rgb(0, 0, 0);
+  }
+}

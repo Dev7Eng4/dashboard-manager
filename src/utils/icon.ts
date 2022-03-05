@@ -1,0 +1,65 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faUserCircle,
+  faLock,
+  faEye,
+  faEyeSlash,
+  faHome,
+  faUserCog,
+  faSignOutAlt,
+  faUsers,
+  faSun,
+  faBell,
+  faMoon,
+  faCamera,
+  faChevronLeft,
+  faChevronRight,
+  faChevronDown,
+  faEllipsisV,
+  faAngleLeft,
+  faAngleRight,
+  faAngleDoubleLeft,
+  faSearch,
+  faAngleDoubleRight,
+  faBars,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faApple,
+  faFacebookF,
+  faGoogle,
+} from '@fortawesome/free-brands-svg-icons';
+import { faCircle, faDotCircle } from '@fortawesome/free-regular-svg-icons';
+
+export const addFontAwesomeIcon = async () => {
+  await library.add(
+    faUserCircle,
+    faLock,
+    faCamera,
+    faChevronDown,
+    faAngleDoubleLeft,
+    faEllipsisV,
+    faSearch,
+    faAngleDoubleRight,
+    faAngleLeft,
+    faAngleRight,
+    faBell,
+    faChevronRight,
+    faTimes,
+    faChevronLeft,
+    faSun,
+    faMoon,
+    faDotCircle,
+    faFacebookF,
+    faCircle,
+    faBars,
+    faEye,
+    faEyeSlash,
+    faGoogle,
+    faHome,
+    faUserCog,
+    faSignOutAlt,
+    faUsers,
+    faApple
+  );
+};
