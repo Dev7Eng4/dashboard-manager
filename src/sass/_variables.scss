@@ -1,11 +1,22 @@
 $color-white: #ffffff;
 $color-white-light: #d3d5d9;
+$color-light-hover: #f2f2f2;
 $color-black: #161d31;
 $color-black-light: #283046;
+$color-black-hover: #474d57;
+
+$text-color-light-primary: #000;
+$text-color-light-second: #677788;
+$text-color-dark-primary: #d8deea;
+$text-color-dark-second: #a1b0cb;
+
+$border-color-light: #d8d6de;
+$border-color-dark: #546990;
+
 $color-light: #f8f9fa;
 $color-primary: #fcd535;
 $color-grey: #b5bcc7;
-$color-danger: #dc3535;
+$color-danger: #ff5b5c;
 $color-auth: #3bb084;
 
 $font-size-small: 1rem;
@@ -19,8 +30,10 @@ $bold: 700;
 $extra-bold: 800;
 
 :root {
-  --text-color-primary: #{$color-black};
-  --text-color-second: #{$color-black-light};
+  --text-color-primary: #{$text-color-light-primary};
+  --text-color-second: #{$text-color-light-second};
   --background-color-primary: #{$color-white-light};
   --background-color-second: #{$color-white};
+  --color-hover: #{$color-light-hover};
+  --border-color-input: #{$border-color-light};
 }

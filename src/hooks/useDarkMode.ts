@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-export type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'light' | '';
 
 export const useDarkMode = (): [Theme, () => void] => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('');
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme') as Theme;
-    localTheme && setTheme(localTheme);
+    setTheme(localTheme || 'light');
   }, []);
 
   const setMode = (mode: Theme) => {

@@ -14,8 +14,9 @@ import { useAppSelector } from 'hooks';
 import { Theme } from 'hooks/useDarkMode';
 
 const Home = React.lazy(() => import('pages/home'));
-const SettingUser = React.lazy(() => import('pages/settingUser'));
-const ListUser = React.lazy(() => import('pages/users'));
+const Profile = React.lazy(() => import('pages/user/profile'));
+const ListUser = React.lazy(() => import('pages/user/user'));
+const Product = React.lazy(() => import('pages/product/product'));
 
 type Props = {
   theme: Theme;
@@ -45,9 +46,10 @@ const WithNavbar = ({ theme, onChangeTheme }: Props) => {
           <main>
             <Suspense fallback={<p>Loading...</p>}>
               <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/dashboard' element={<Home />} />
                 <Route path='/users' element={<ListUser />} />
-                <Route path='/settings/me' element={<SettingUser />} />
+                <Route path='/me' element={<Profile />} />
+                <Route path='/products' element={<Product />} />
                 <Route path='*' element={<PageNotFound />} />
               </Routes>
             </Suspense>

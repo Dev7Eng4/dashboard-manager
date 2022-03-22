@@ -47,6 +47,10 @@ const VerifyCode = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
+    if (isNaN(Number(value))) {
+      return;
+    }
+
     if (value.length <= 6) {
       setCode(value);
       setError('');
@@ -74,22 +78,22 @@ const VerifyCode = () => {
   };
 
   return (
-    <div className="container-auth">
+    <div className='container-auth'>
       <Form
-        className="d-flex flex-column auth-form__verify-code"
+        className='d-flex flex-column auth-form__verify-code'
         onSubmit={handleVerifyCode}
       >
-        <h2 className="text-center">2FA Verify</h2>
-        <span className="text-left form-auth__title-description mt-5">
+        <h2 className='text-center'>2FA Verify</h2>
+        <span className='text-left form-auth__title-description mt-5'>
           A verification code has been sent to your email. This code will valid
           for 5 minutes.
         </span>
 
-        <InputGroup className="input-code mt-2">
+        <InputGroup className='input-code mt-2'>
           <Form.Control
             value={code}
             onChange={handleChange}
-            placeholder="6-digits code"
+            placeholder='6-digits code'
           />
           <span
             className={`time ${!time ? 'btn-reset' : ''}`}
@@ -98,9 +102,9 @@ const VerifyCode = () => {
             {!time ? 'Reset' : `${time}s`}
           </span>
         </InputGroup>
-        <p className="error-msg">{error}</p>
+        <p className='error-msg'>{error}</p>
 
-        <Button type="submit" disabled={false} className="mt-3 mb-4">
+        <Button type='submit' disabled={false} className='mt-3 mb-4'>
           Verify
         </Button>
       </Form>

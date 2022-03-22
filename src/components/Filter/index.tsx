@@ -4,37 +4,48 @@ import { Button } from 'react-bootstrap';
 import SelectFilter, { OptionSelect } from 'components/Global/Select';
 import Search from 'components/Global/Search';
 
-import './UserFilter.scss';
+import './index.scss';
 
 type Props = {
   searchValue: string;
+  searchPlaceholder?: string;
+  filterPlaceholder?: string;
+  btnLabel: string;
+  optionsFilter: OptionSelect[];
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFilterChange: (selected: OptionSelect) => void;
   onAddClick: () => void;
 };
 
-const optionsFilter: OptionSelect[] = [
-  { value: '', label: 'All User' },
-  { value: 'active', label: 'Active' },
-  { value: 'inactive', label: 'In Active' },
-];
-
-const UserFilter = (props: Props) => {
-  const { searchValue, onSearchChange, onFilterChange, onAddClick } = props;
+const Filter = (props: Props) => {
+  const {
+    searchValue,
+    searchPlaceholder,
+    filterPlaceholder,
+    btnLabel,
+    optionsFilter,
+    onSearchChange,
+    onFilterChange,
+    onAddClick,
+  } = props;
 
   return (
-    <div className='users-filter'>
-      <Search value={searchValue} onChange={onSearchChange} />
+    <div className='filter-wrap'>
+      <Search
+        value={searchValue}
+        placeholder={searchPlaceholder}
+        onChange={onSearchChange}
+      />
       <SelectFilter
         options={optionsFilter}
         onChange={onFilterChange}
-        placeholder='Select one value'
+        placeholder={filterPlaceholder}
       />
       <Button className='d-block ms-auto btn-submit' onClick={onAddClick}>
-        Add User
+        {btnLabel}
       </Button>
     </div>
   );
 };
 
-export default UserFilter;
+export default Filter;

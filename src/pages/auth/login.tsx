@@ -22,7 +22,7 @@ interface IFormInput {
 }
 
 const validateSchema = yup.object({
-  username: yup.string().required(''),
+  username: yup.string().required(),
   password: yup.string().required(),
 });
 
@@ -45,8 +45,8 @@ const Login = () => {
   } = useForm<IFormInput>({
     resolver: yupResolver(validateSchema),
     defaultValues: {
-      username: '',
-      password: '',
+      username: 'Admin',
+      password: 'Default@123',
       isRemember: false,
     },
     mode: 'onChange',
@@ -65,10 +65,10 @@ const Login = () => {
   };
 
   return (
-    <div className="container-auth">
-      <Form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
-        <h2 className="text-center">LOGIN</h2>
-        <span className="text-center form-auth__title-description">
+    <div className='container-auth'>
+      <Form onSubmit={handleSubmit(onSubmit)} className='d-flex flex-column'>
+        <h2 className='text-center'>LOGIN</h2>
+        <span className='text-center form-auth__title-description'>
           Welcome to E-SELL admin dashboard.
         </span>
 
@@ -77,7 +77,7 @@ const Login = () => {
             <FontAwesomeIcon icon={['fas', 'user-circle']} />
           </InputGroup.Text>
           <Controller
-            name="username"
+            name='username'
             control={control}
             render={({ field }) => (
               <Form.Control
@@ -86,21 +86,21 @@ const Login = () => {
                   field.onChange(e);
                   setErrorResponse('');
                 }}
-                placeholder="Username or email"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
+                placeholder='Username or email'
+                aria-label='Username'
+                aria-describedby='basic-addon1'
               />
             )}
           />
         </InputGroup>
-        <p className="error-msg">{errorResponse}</p>
+        <p className='error-msg'>{errorResponse}</p>
 
-        <InputGroup className="mt-3 mb-2 input-group__password">
+        <InputGroup className='mt-3 mb-2 input-group__password'>
           <InputGroup.Text>
             <FontAwesomeIcon icon={['fas', 'lock']} />
           </InputGroup.Text>
           <Controller
-            name="password"
+            name='password'
             control={control}
             render={({ field }) => (
               <Form.Control
@@ -110,9 +110,9 @@ const Login = () => {
                   setErrorResponse('');
                 }}
                 type={`${showPassword ? 'text' : 'password'}`}
-                placeholder="Password"
-                aria-label="Password"
-                aria-describedby="basic-addon1"
+                placeholder='Password'
+                aria-label='Password'
+                aria-describedby='basic-addon1'
               />
             )}
           />
@@ -122,43 +122,43 @@ const Login = () => {
           />
         </InputGroup>
 
-        <Row className="mb-4 mt-2">
+        <Row className='mb-4 mt-2'>
           <Col>
             <Controller
-              name="isRemember"
+              name='isRemember'
               control={control}
               render={({ field }) => (
                 <Form.Check
-                  id="check_remember"
-                  type="checkbox"
+                  id='check_remember'
+                  type='checkbox'
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     field.onChange(e.target.checked)
                   }
-                  label="Remember me"
+                  label='Remember me'
                   checked={field.value}
                 />
               )}
             />
           </Col>
 
-          <Col className="text-end">
+          <Col className='text-end'>
             <span>
-              <Link to="/forgot-password">Forgot password?</Link>
+              <Link to='/forgot-password'>Forgot password?</Link>
             </span>
           </Col>
         </Row>
 
-        <Button type="submit" disabled={!isValid || !!errorResponse}>
+        <Button type='submit' disabled={!isValid || !!errorResponse}>
           Login
         </Button>
 
-        <div className="d-flex my-5">
-          <hr className="flex-grow-1" />
-          <span className="px-3">or</span>
-          <hr className="flex-grow-1" />
+        <div className='d-flex my-5'>
+          <hr className='flex-grow-1' />
+          <span className='px-3'>or</span>
+          <hr className='flex-grow-1' />
         </div>
 
-        <div className="text-center diff-login">
+        <div className='text-center diff-login'>
           Log in with
           <div>
             <span>

@@ -12,14 +12,14 @@ export const navbars: NavBarItem[] = [
     route: '/invoice',
   },
   {
-    innerText: 'Dashbard',
+    innerText: 'Category',
     leftIcon: ['fas', 'home'],
-    route: '/test',
+    route: '/categories',
   },
   {
-    innerText: 'Dashboad',
+    innerText: 'Product',
     leftIcon: ['fas', 'sign-out-alt'],
-    route: '/demo',
+    route: '/products',
   },
   {
     innerText: 'Users',
@@ -27,7 +27,7 @@ export const navbars: NavBarItem[] = [
     subLinks: [
       {
         innerText: 'Me',
-        route: '/settings/me',
+        route: '/me',
       },
       {
         innerText: 'All Users',

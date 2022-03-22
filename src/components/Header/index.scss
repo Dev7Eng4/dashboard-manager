@@ -1,8 +1,18 @@
 header {
-  position: sticky;
-  top: 0;
+  padding: 2rem 1.5rem 0;
+  background-color: var(--background-color-primary);
+
+  @include respond(tab-port) {
+    padding: 2rem 2rem 0;
+  }
+}
+
+.header-container {
   align-items: center;
-  padding: 0 2rem;
+  padding: 0.5rem 1.5rem;
+
+  border-radius: 5px;
+  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.3);
 
   .svg-inline--fa {
     font-size: 2rem;
@@ -53,6 +63,10 @@ header {
       padding-right: 1rem;
       color: rgb(255, 1, 255);
     }
+  }
+
+  @include respond(tab-port) {
+    padding: 0.5rem 2rem;
   }
 
   @include respond(desktop) {

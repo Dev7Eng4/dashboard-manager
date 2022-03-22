@@ -4,10 +4,11 @@
     td {
       vertical-align: middle;
       padding: 1rem 1.6rem;
+      color: var(--text-color-primary);
     }
 
     & > :not(:first-child) {
-      border-top: 2px solid greenyellow;
+      border-top: 2px solid $color-primary;
     }
   }
 }
@@ -15,7 +16,7 @@
   .page-item {
     width: 2.7rem;
     height: 2.7rem;
-    margin: 0 1px;
+    margin: 0 2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,14 +25,23 @@
     border-radius: 4px;
     cursor: pointer;
 
-    &.active,
     &:hover {
-      background-color: var(--background-color-second);
+      background-color: var(--color-hover);
     }
 
     &.active {
       color: var(--text-color-primary);
+      background-color: $color-primary;
       cursor: default;
+    }
+
+    &.disabled {
+      color: $color-white-light;
+      cursor: default;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }

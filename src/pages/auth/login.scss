@@ -1,5 +1,4 @@
 .container-auth {
-  // max-width: 300px;
   min-height: 100vh;
   margin: auto;
   padding: 3rem 1rem;
@@ -48,6 +47,7 @@
     .form-control {
       height: 39px;
       padding: 1rem;
+      border: 1px solid #ced4da;
 
       &:focus {
         border-color: #ced4da;

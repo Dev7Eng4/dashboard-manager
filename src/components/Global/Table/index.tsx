@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Table } from 'react-bootstrap';
 
-import './index.scss';
+// import './index.scss';
 
 interface Column {
   key: string;
@@ -14,10 +14,62 @@ type Props = {
   rows: Record<string, string | React.ReactNode>[];
   isSort?: boolean;
   isPagination?: boolean;
+  pageActive?: number;
+  rowsPerPage?: number;
+  count?: number;
+  onPageChange?: (page: number) => void;
+  onRowsPerPageChange?: () => void;
 };
 
+const numbers = (length: number) =>
+  Array.from({ length: length }, (_: unknown, i: number) => i + 1);
+
 const TableComponent = (props: Props) => {
-  const { columns, rows, isSort, isPagination } = props;
+  const {
+    columns,
+    rows,
+    isSort,
+    isPagination,
+    pageActive = 1,
+    rowsPerPage = 10,
+    count = 0,
+    onPageChange,
+    onRowsPerPageChange,
+  } = props;
+
+  const pages = useMemo(
+    () => Math.ceil(count / rowsPerPage),
+    [count, rowsPerPage]
+  );
+
+  const getNumbersForPage = useCallback(() => {
+    console.log('pages', pages);
+    if (pages <= 5) {
+      return numbers(pages);
+    }
+    if (pageActive <= 3) {
+      return numbers(5);
+    }
+
+    if (pages - pageActive <= 3) {
+      console.log(
+        'a',
+        numbers(5).map((i) => i + pages - 5)
+      );
+      return numbers(5).map((i) => i + pages - 5);
+    }
+    return [
+      pageActive - 2,
+      pageActive - 1,
+      pageActive,
+      pageActive + 1,
+      pageActive + 2,
+    ];
+  }, [count, rowsPerPage, pageActive]);
+
+  const handlePageChange = (page: number) => {
+    onPageChange && onPageChange(page);
+  };
 
   return (
     <div className='table-container'>
@@ -42,19 +94,39 @@ const TableComponent = (props: Props) => {
 
       {isPagination && (
         <ul className='pagination'>
-          <li className='page-item'>
+          <li
+            className={`page-item ${pageActive === 1 ? 'disabled' : ''}`}
+            onClick={() => pageActive !== 1 && handlePageChange(1)}
+          >
             <FontAwesomeIcon icon={['fas', 'angle-double-left']} />
           </li>
-          <li className='page-item'>
+          <li
+            className={`page-item ${pageActive === 1 ? 'disabled' : ''}`}
+            onClick={() => pageActive !== 1 && handlePageChange(pageActive - 1)}
+          >
             <FontAwesomeIcon icon={['fas', 'angle-left']} />
           </li>
-          <li className='page-item'>1</li>
-          <li className='page-item'>2</li>
-          <li className='page-item'>79</li>
-          <li className='page-item'>
+          {getNumbersForPage().map((i) => (
+            <li
+              key={i}
+              className={`page-item ${pageActive === i ? 'active' : ''}`}
+              onClick={() => handlePageChange(i)}
+            >
+              {i}
+            </li>
+          ))}
+          <li
+            className={`page-item ${pageActive === pages ? 'disabled' : ''}`}
+            onClick={() =>
+              pageActive !== pages && handlePageChange(pageActive + 1)
+            }
+          >
             <FontAwesomeIcon icon={['fas', 'angle-right']} />
           </li>
-          <li className='page-item'>
+          <li
+            className={`page-item ${pageActive === pages ? 'disabled' : ''}`}
+            onClick={() => pageActive !== pages && handlePageChange(pages)}
+          >
             <FontAwesomeIcon icon={['fas', 'angle-double-right']} />
           </li>
         </ul>

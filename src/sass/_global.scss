@@ -1,8 +1,10 @@
 .app-dark {
-  --text-color-primary: #{$color-white};
-  --text-color-second: #{$color-white-light};
+  --text-color-primary: #{$text-color-dark-primary};
+  --text-color-second: #{$text-color-dark-second};
   --background-color-primary: #{$color-black};
   --background-color-second: #{$color-black-light};
+  --color-hover: #{$color-black-hover};
+  --border-color-input: #{$border-color-dark};
 }
 
 .custom-theme {
@@ -21,13 +23,21 @@
 
 main {
   min-height: calc(100vh - 50px);
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: var(--background-color-primary);
 
   .container-fluid {
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--background-color-second);
     border-radius: 5px;
+  }
+
+  @include respond(tab-port) {
+    padding: 2rem;
+
+    .container-fluid {
+      padding: 2rem;
+    }
   }
 }
 
@@ -48,10 +58,19 @@ main {
 
 .form-control {
   padding: 0.8rem;
+  background-color: inherit;
+  border: 1px solid var(--border-color-input);
+  color: var(--text-color-second);
 
   &:focus {
+    background-color: inherit;
+    color: var(--text-color-second);
     border-color: $color-primary;
     box-shadow: none;
+  }
+
+  &.error {
+    border-color: $color-danger;
   }
 }
 
@@ -60,9 +79,16 @@ main {
   border: none;
   background-color: $color-primary;
   color: $color-black;
+  flex-shrink: 0;
+  box-shadow: none !important;
 
   &:hover {
-    background-color: rgba($color-primary, 0.9);
+    background-color: rgba($color-primary, 0.8);
+    color: $color-black;
+  }
+
+  &:focus {
+    background-color: $color-primary;
     color: $color-black;
   }
 }

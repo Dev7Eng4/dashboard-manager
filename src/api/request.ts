@@ -1,3 +1,4 @@
+import { CancelToken } from 'axios';
 import { z } from 'zod';
 
 import { axiosGet, axiosPost, axiosPatch, axiosDelete } from './configAxios';
@@ -71,8 +72,12 @@ export const fetchFindAccount = async (username: string) => {
   return res;
 };
 
-export const getUser = async () => {
-  // const res = await
+export const getUser = async (signalCancel: AbortSignal) => {
+  const res = await axiosGet('https://jsonplaceholder.typicode.com/todos', {
+    axiosOptions: { signal: signalCancel },
+  });
+
+  return res;
 };
 
 export const verifyAuth = () => {};

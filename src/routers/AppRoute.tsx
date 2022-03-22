@@ -27,6 +27,10 @@ const AppRouter = () => {
     // });
   }, []);
 
+  if (!theme) {
+    return <></>;
+  }
+
   return (
     <Container fluid className={`${theme === 'dark' ? 'app-dark' : ''}`}>
       <Routes>

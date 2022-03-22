@@ -1,0 +1,27 @@
+@import 'sass/mixins/responsive.scss';
+
+.filter-wrap {
+  .custom-select {
+    margin: 1rem 0;
+  }
+
+  .btn-submit {
+    flex-shrink: 0;
+  }
+
+  @include respond(tab-middle) {
+    display: flex;
+    align-items: center;
+
+    .custom-select {
+      margin: 0 1rem;
+      min-width: 200px;
+    }
+  }
+
+  @include respond(tab-middle) {
+    .custom-select {
+      min-width: 250px;
+    }
+  }
+}

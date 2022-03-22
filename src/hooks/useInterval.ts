@@ -1,15 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
-type Props = {
-  callback: () => void;
-  delay: number;
-};
-
-export const useInterval = (
-  callback: () => void,
-  delay: number,
-  clear?: boolean
-) => {
+const useInterval = (callback: () => void, delay: number, clear?: boolean) => {
   const savedCallback = useRef(callback);
 
   useLayoutEffect(() => {
@@ -29,3 +20,5 @@ export const useInterval = (
     return () => clearInterval(id);
   }, [delay, clear]);
 };
+
+export default useInterval;

@@ -14,6 +14,10 @@ interface RequestOptionsType {
   useAuth?: boolean;
 }
 
+export const getAxiosCancel = () => {
+  return axios.CancelToken.source();
+};
+
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URI,
   headers: {
